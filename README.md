@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://cdn.jsdelivr.net/gh/innofang/jokul/jokul-client/src/images/JOKUL.png)
+![](https://git.fdmgroup.com/Mengyu.Chen/movie-reviews-app/raw/master/docs/movie-reviews-logo.jpg)
 
 **A movie site built by Spring Boot and React.js based on [front-end](https://github.com/InnoFang/jokul/tree/master/jokul-client) and [back-end](https://github.com/InnoFang/jokul/tree/master/jokul-server) separation.**
 
