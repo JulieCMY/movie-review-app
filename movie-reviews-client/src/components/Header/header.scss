@@ -1,0 +1,70 @@
+@import '../../style/variables.scss';
+
+@media only screen and (max-width: 700px){
+    #movie-review-container {
+        display: none;
+        .movie-reviews-delimiter, .movie-reviews-text {
+            display: none;
+        }
+    }
+
+    .movie-search {
+        display: none;
+    }
+}
+
+.ant-layout-header {
+    background-color: $theme-bgColor;
+}
+.movie-reviews-logo {
+    padding: 0.3125rem 0.625rem 0.3125rem 1rem;
+    display: block;
+    height: 100%;
+    background-color: $theme-bgColor;
+    display: flex;
+}
+#movie-review-container {
+    display: flex;
+}
+.movie-reviews-delimiter{
+    width: 0.0625rem;
+    height: 2.68rem;
+    background-color: $theme-fontColor;
+    margin-top: 0.625rem;
+    // display: flex;
+}
+.movie-reviews-text{
+    width: 100%;
+    // display: flex;
+    background-color: $theme-bgColor;
+    padding-left: 0.9375rem;
+    h1 {
+        color: $theme-fontColor;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}
+
+.movie-search {
+    width: 25rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $theme-bgColor;
+    border: 0;
+}
+
+.movie-search-wrapper {
+    width: 80%;
+}
+
+.user-login {
+    // width: 100%;
+    padding-right: 0.625rem;
+}
+
+.sign-in-button {
+    // width: 100%;
+    background-color: #fff;
+    padding-right: 2rem;
+}

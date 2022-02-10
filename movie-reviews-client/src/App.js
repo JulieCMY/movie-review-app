@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { Layout } from 'antd';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+} from 'react-router-dom';
+import AppHeader from './components/Header/header';
+const { Header, Content, Footer } = Layout;
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Layout className="layout">
+			<Router>
+				<Header className="header">
+					<AppHeader />
+				</Header>
+				<Content style={{ padding: '0 100px', minHeight: 1000 }}>
+					Hello
+				</Content>
+			</Router>
+			<Footer style={{ textAlign: 'center' }}>CINEMA THEATRE | MOVIE REVIEW ©2022 Created by Julie Chen</Footer>
+		</Layout>
+	);
 }
 
 export default App;
