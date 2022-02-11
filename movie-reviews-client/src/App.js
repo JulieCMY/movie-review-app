@@ -1,26 +1,29 @@
 import './App.css';
 import { Layout } from 'antd';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch
-} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppHeader from './components/Header/header';
+import Home from './components/Home/Home';
+import Detail from './components/Detail/Detail';
+import SearchMovieByGenre from './components/Search/SearchGenre';
 const { Header, Content, Footer } = Layout;
 
 function App() {
 	return (
-		<Layout className="layout">
-			<Router>
+		<BrowserRouter>
+			<Layout className="layout">
 				<Header className="header">
 					<AppHeader />
 				</Header>
-				<Content style={{ padding: '0 100px', minHeight: 1000 }}>
-					Hello
+				<Content className="content">
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/detail/:id' element={<Detail />} />
+						<Route path='/genre/:genreId' element={<SearchMovieByGenre />} />
+					</Routes>
 				</Content>
-			</Router>
-			<Footer style={{ textAlign: 'center' }}>CINEMA THEATRE | MOVIE REVIEW ©2022 Created by Julie Chen</Footer>
-		</Layout>
+				<Footer style={{ textAlign: 'center', backgroundColor: '#808581', color: '#EFECDB' }}>CINEMA THEATRE | MOVIE REVIEW ©2022 Created by Julie Chen</Footer>
+			</Layout>
+		</BrowserRouter>
 	);
 }
 

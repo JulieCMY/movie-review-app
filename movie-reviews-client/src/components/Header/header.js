@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import logo from './movie-reviews-logo.jpg';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
@@ -49,21 +50,17 @@ const ColorButton = styled(Button)({
 });
 
 class AppHeader extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        };
-    }
-
     render() {
         return (
             <Fragment>
-                <img src={logo} alt="logo" className="movie-reviews-logo" />
-                <div id="movie-review-container">
-                    <div className="movie-reviews-delimiter"></div>
-                    <div className="movie-reviews-text"><h1>MOVIE REVIEW</h1></div>
-                </div>
+                <Link to="/" className="movie-reviews" style={{ textDecoration: 'none', display: 'flex' }}>
+                    <img src={logo} alt="logo" className="movie-reviews-logo" />
+                    <div id="movie-review-container">
+                        <div className="movie-reviews-delimiter"></div>
+                        <div className="movie-reviews-text"><h1>MOVIE REVIEW</h1></div>
+                    </div>
+                </Link>
+                
                 
                 <div className="movie-search">
                     <Paper

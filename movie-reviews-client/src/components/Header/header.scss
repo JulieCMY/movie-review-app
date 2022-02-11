@@ -16,6 +16,7 @@
 .ant-layout-header {
     background-color: $theme-bgColor;
 }
+
 .movie-reviews-logo {
     padding: 0.3125rem 0.625rem 0.3125rem 1rem;
     display: block;
@@ -31,14 +32,15 @@
     height: 2.68rem;
     background-color: $theme-fontColor;
     margin-top: 0.625rem;
-    // display: flex;
 }
 .movie-reviews-text{
     width: 100%;
-    // display: flex;
     background-color: $theme-bgColor;
     padding-left: 0.9375rem;
     h1 {
+        text-align: center;
+        line-height: 3.9375rem;
+        font-size: 2rem;
         color: $theme-fontColor;
         font-family: 'Times New Roman', Times, serif;
     }

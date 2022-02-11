@@ -1,5 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .layout {
-  background-color: #ebe9e1;
+  background-color: #242423;
 }
 .header{
   border-bottom: 1px solid #999;
@@ -7,4 +12,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
+}
+.content {
+  margin-top: 50px;
 }
