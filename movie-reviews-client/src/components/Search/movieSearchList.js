@@ -16,8 +16,15 @@ const MovieSearchList = (props) => {
                         </div>  
                     </Link>
                     <div className="lister-item-content">
-                        <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0, 4)})</h3>
-                        <div className="ratings-bar"><Rating name="half-rating-read" defaultValue={parseFloat(movie.vote_average) / 2} precision={0.1} readOnly /> <span className="rating">{movie.vote_average}</span></div>
+                        <div className="lister-item-top">
+                        <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0, 4)})</h3>   
+                            <div className="lister-item-rating">
+                                <div className="ratings-bar">
+                                    <Rating name="half-rating-read" value={parseFloat(movie.vote_average) / 2} precision={0.1} readOnly /> 
+                                </div>
+                                <div className="rating"><p>{movie.vote_average}</p></div>
+                            </div>
+                        </div>
                         <p className="text-muted">{movie.overview}</p>
                     </div>
 

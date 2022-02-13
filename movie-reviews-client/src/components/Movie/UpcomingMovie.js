@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import MovieList from "./movieList";
 import API_KEY from "../Data/api";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import '../../style/movie.scss';
 
 const UpcomingMovie = () => {
@@ -21,7 +22,12 @@ const UpcomingMovie = () => {
 
     return (
     <div className='movie-wrapper container-fluid'>
-        <h2 className="movie-heading">Coming soon to theaters</h2>
+        <div className='movie-heading-container'>
+            <h2 className="movie-heading">Coming soon to theaters</h2>
+            <Link to={'/movie/upcoming'}>
+                <ArrowForwardIosRoundedIcon className="more-movie-icon"/>
+            </Link> 
+        </div>
         <div className="movie-list">
             <MovieList movies={movies} />
         </div>
