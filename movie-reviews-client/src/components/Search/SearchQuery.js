@@ -1,52 +1,41 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 import MovieSearchList from "./movieSearchList";
 import Pagination from '@mui/material/Pagination';
 import API_KEY from "../Data/api";
 import '../../style/movie.scss';
 
-const SearchMovieByGenre = () => {
-    const [genre, setGenre] = useState('');
+const SearchMovieByKeyword = () => {
+    // search query keyword
+    const location = useLocation();
+    const urlParams = new URLSearchParams(location.search);
+    const queryKeyword = urlParams.get('query');
+    
     const [movies, setMovies] = useState([]);
-    let { genreId } = useParams();
-
     const [maxPages, setMaxPages] = useState([]);
     const [page, setPage] = React.useState(1);
     const handleChange = (event, value) => {
         setPage(value);
         document.documentElement.scrollTop = 0;
     };
-
-    const getGenreRequest = async () => {
-        const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
-        const response = await fetch(url);
-        const responsJson = await response.json();
-        for(let i in responsJson.genres){
-            if (responsJson.genres[i].id == genreId){
-                // console.log(responsJson.genres[i].name);
-                setGenre(responsJson.genres[i].name);
-                break;
-            }
-        }    
-    }
-
+    
     const getMovieRequest = async () => {
-        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${page}`;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${queryKeyword}&page=${page}`;
         const response = await fetch(url);
         const responsJson = await response.json();
-        // console.log(responsJson);
-        setMovies(responsJson.results)
+        console.log(responsJson);
+        setMovies(responsJson.results);
         setMaxPages(responsJson.total_pages);
     }
 
+    // Once queryKeyword has changed, reset the movie request
     useEffect(()=> {
-        getGenreRequest();
         getMovieRequest();
-    }, [page]); 
+    }, [queryKeyword, page]); 
 
     return (
     <div className='movie-wrapper container-fluid'>
-        <h2 className="movie-heading">Discover {genre} Movies</h2>
+        <h2 className="movie-heading">Search Results for "{queryKeyword}" </h2>
         <div className="lister">
             <MovieSearchList movies={movies} />
         </div>
@@ -57,4 +46,4 @@ const SearchMovieByGenre = () => {
     );
 };
 
-export default SearchMovieByGenre;
+export default SearchMovieByKeyword;

@@ -208,23 +208,35 @@
             visibility: hidden;
         }
         .cast-box{
-            margin-right: 10px;
+            margin-right: 15px;
         }
     }
 }
 
 .lister{
     margin-top: 50px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
     .lister-item {
-        display: flex;
+        width: 300px;
         justify-content: center;
         background-color: #eceadb;
         border-radius: 10px;
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+        &-img .movie-poster{
+            width: 300px;
+            height: 450px;
+        }
         &-content {
             padding: 30px;
-
+            .lister-item-header{
+                font-size: 20px;
+            }
             .ratings-bar {
+                margin-bottom: 8px;
                 display: flex;
                 .rating {
                     margin-left: 10px;
@@ -234,11 +246,31 @@
                 overflow: hidden;
                 text-overflow: ellipsis;
                 display: -webkit-box;
-                -webkit-line-clamp: 5;
+                -webkit-line-clamp: 10;
                 overflow:hidden;
                 /*! autoprefixer: off */
                 -webkit-box-orient: vertical;
             }
         }
+    }
+}
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+    li > div {
+        color: #dfdac6;
+    }
+    button.Mui-selected {
+        background-color:#254a67;
+        color: white;
+        transform: scale(1.1);
+    }
+    button {
+        margin-right: 20px;
+        background-color:#515248;
+        color:$theme-fontColor;
     }
 }

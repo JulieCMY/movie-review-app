@@ -30,7 +30,11 @@ const MovieDetail = () => {
                 <p className="movie-tagline">{movieDetail.tagline}</p>
                 <div className="movie-detail">
                     <div className="movie-detail-post">
-                        <img src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} alt="post"></img>
+                        {
+                            movieDetail.poster_path?
+                            <img src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} alt="post"></img>:
+                            <img src={'https://raw.githubusercontent.com/JulieCMY/mengyuc/master/photo-not-found.png'} alt='movie'></img> 
+                        }
                     </div>
                     <ul className="movie-detail-info">
                         <li className="movie-metadata-genre"><GenreList genres={movieDetail.genres} /></li>

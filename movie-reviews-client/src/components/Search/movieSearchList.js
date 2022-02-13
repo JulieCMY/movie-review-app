@@ -9,16 +9,19 @@ const MovieSearchList = (props) => {
                 <div className="lister-item" key={index}>
                     <Link to={`/detail/${movie.id}`}>
                         <div className="lister-item-img">
-                            <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt='movie'></img>
-                        </div>
+                            {movie.poster_path ?
+                                <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='movie'></img> :
+                                <img className="movie-poster" src={'https://raw.githubusercontent.com/JulieCMY/mengyuc/master/photo-not-found.png'} alt='movie'></img> 
+                            }
+                        </div>  
                     </Link>
                     <div className="lister-item-content">
-                        <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0,4)})</h3> 
-                        <div className="ratings-bar"><Rating name="half-rating-read" defaultValue={parseFloat(movie.vote_average)/2} precision={0.1} readOnly /> <span className="rating">{movie.vote_average}</span></div>
+                        <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0, 4)})</h3>
+                        <div className="ratings-bar"><Rating name="half-rating-read" defaultValue={parseFloat(movie.vote_average) / 2} precision={0.1} readOnly /> <span className="rating">{movie.vote_average}</span></div>
                         <p className="text-muted">{movie.overview}</p>
+                    </div>
+
                 </div>
-                
-            </div>
             ))}
         </Fragment>
     );
