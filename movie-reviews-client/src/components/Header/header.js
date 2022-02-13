@@ -66,7 +66,7 @@ class AppHeader extends Component {
                     <Paper
                         className="movie-search-wrapper"
                         component="form"
-                        sx={{ p: '2px 4px', margin: '6px 0', display: 'flex', alignItems: 'center', borderRadius: '25px', backgroundColor: '#706f65' }}
+                        sx={{ p: '4px 8px', margin: '6px 0', display: 'flex', alignItems: 'center', borderRadius: '25px', backgroundColor: '#706f65' }}
                     >
                         <IconButton sx={{ p: '10px', color: '#EFECDB' }} aria-label="menu">
                             <MenuIcon />

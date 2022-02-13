@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API_KEY from "../Data/api";
+// import CarouselYoutube from "./CarouselYoutube";
 import YoutubeList from "./YoutubeList";
+import './trailer.scss';
+
 
 const Trailer = () => {
     const [trailers, setTrailer] = useState([]);
@@ -12,15 +15,22 @@ const Trailer = () => {
         const response = await fetch(url);
         const responsJson = await response.json();
         setTrailer(responsJson.results)
-        console.log(responsJson.results[0].key);
+        console.log(responsJson.results[0]);
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         getTrailerRequest();
-    }, []); 
+    }, []);
 
-    return (<div><YoutubeList trailers={trailers} /></div>)
-    // <YoutubeList trailers={trailers} />
+    return (
+        <div className="trailer movie-info-wrapper">
+            <h3 className="detail-heading">Official Trailer · · · · · ·({trailers.length})</h3>
+            <div className="trailer-list">
+                <YoutubeList trailers={trailers} />
+                {/* <CarouselYoutube /> */}
+            </div>
+        </div>
+    )
 };
 
 export default Trailer;

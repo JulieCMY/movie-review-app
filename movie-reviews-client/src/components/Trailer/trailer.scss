@@ -1,0 +1,11 @@
+.youtube-video{
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    &::-webkit-scrollbar {
+        visibility: hidden;
+    }
+    .video-container{
+        margin-right: 10px;
+    }
+}

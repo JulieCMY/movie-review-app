@@ -1,12 +1,14 @@
-import React, { Fragment } from 'react';
+import React from "react";
 import YouTube from 'react-youtube';
 
 const opts = {
-    height: '390',
-    width: '640',
+    // height: '390',
+    // width: '640',
+    height: '260',
+    width: '427',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
@@ -17,13 +19,13 @@ const onReady = (event) => {
 
 const YoutubeList = (props) => {
     return (
-        <Fragment>
+        <div className="youtube-video">
             {props.trailers.map((trailer, index) => (
                 <div className="trailer-box" key={index}>
-                    <YouTube videoId={`${trailer.key}`} opts={opts} onReady={onReady} />
+                    <YouTube videoId={`${trailer.key}`} containerClassName="video-container" className="iframe" opts={opts} onReady={onReady} />
                 </div>
             ))}
-        </Fragment>
+        </div>
     );
 };
 

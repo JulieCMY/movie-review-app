@@ -4,10 +4,9 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
 const ColorButton = styled(Button)({
-    // textDecoration: 'none',
     boxShadow: 'none',
     textTransform: 'none',
-    fontSize: 16,
+    fontSize: 14,
     marginTop: '10px',
     marginBottom: '10px',
     padding: '6px 12px',
@@ -48,7 +47,7 @@ const GenreList = (props) => {
             {props.genres?.map((genre, index) => (
                 <Link to={`/genre/${genre.id}`} key={genre.id}>
                     <div className="movie-genre-box">
-                        <ColorButton variant="contained">{genre.name}</ColorButton>
+                        <ColorButton variant="contained" size="small">{genre.name}</ColorButton>
                     </div>
                 </Link>
             ))}
