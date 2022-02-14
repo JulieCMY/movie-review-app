@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import castNotFound from '../../img/cast-not-found.png';
 
 const CastList = (props) => {
     return (
@@ -20,7 +21,7 @@ const CastList = (props) => {
                             <CardMedia
                                 component="img"
                                 height="200"
-                                image={'https://raw.githubusercontent.com/JulieCMY/mengyuc/master/cast-not-found.jpg'}
+                                image={castNotFound}
                                 alt="cast"
                             />
                         }

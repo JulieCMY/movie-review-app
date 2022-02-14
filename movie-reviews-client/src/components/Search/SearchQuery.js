@@ -13,7 +13,7 @@ const SearchMovieByKeyword = () => {
     
     const [movies, setMovies] = useState([]);
     const [maxPages, setMaxPages] = useState([]);
-    const [page, setPage] = React.useState(1);
+    const [page, setPage] = useState(1);
     const handleChange = (event, value) => {
         setPage(value);
         document.documentElement.scrollTop = 0;

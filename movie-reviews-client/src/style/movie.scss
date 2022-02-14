@@ -1,5 +1,38 @@
 @import './variables.scss';
 
+.banner-wrapper{
+    width: 800px;
+    .movie-banner-box {
+        position: relative;
+    }
+    .movie-banner-content {
+        position: absolute;
+        z-index: 2;
+        left:50px;
+        top:50%;
+        transform: translate(0, -50%);
+        a {
+            text-decoration: none;
+        }
+        .movie-banner-heading {
+            width: 300px;
+            text-align:left; 
+            color: white;
+            font-size: 40px; 
+            font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            text-shadow: 0 0 2rem rgba(61, 58, 58, 0.6);
+        }
+        .movie-banner-release-date{
+            width: 110px;
+            padding: 5px;
+            color: white;
+            text-align:left; 
+            background-color: #67675a;
+            font-weight: bold;
+        }
+    }
+}
 .movie-heading-container {
     display: flex;
     align-items: center;
@@ -67,6 +100,7 @@
 
 .movie-detail-wrapper{
     display: flex;
+    justify-content: space-between;
 }
 .movie-wrapper {
     padding: 10px 100px;
@@ -170,6 +204,7 @@
 }
 
 .movie-right-container {
+    flex: 0;
     margin-left: 50px;
     width: 750px;
     padding-left: 30px;
@@ -193,6 +228,18 @@
             .rating-count {
                 font-size: 12px;
                 line-height: 12px;
+            }
+        }
+    }
+    .user-comment{
+        margin-top: 20px;
+        width: 320px;
+        background-color: #00010278;
+        .user-icon {
+            width: 80px;
+            img {
+                width: 100%;
+                border-radius: 50%;
             }
         }
     }

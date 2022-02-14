@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Rating from '@mui/material/Rating';
+import photoNotFound from "../../img/photo-not-found.png";
 
 const MovieSearchList = (props) => {
     return (
@@ -11,7 +12,7 @@ const MovieSearchList = (props) => {
                         <div className="lister-item-img">
                             {movie.poster_path ?
                                 <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='movie'></img> :
-                                <img className="movie-poster" src={'https://raw.githubusercontent.com/JulieCMY/mengyuc/master/photo-not-found.png'} alt='movie'></img> 
+                                <img className="movie-poster" src={photoNotFound} alt='movie'></img> 
                             }
                         </div>  
                     </Link>

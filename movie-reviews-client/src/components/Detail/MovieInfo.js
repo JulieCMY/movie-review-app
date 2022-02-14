@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API_KEY from "../Data/api";
+import userIcon from "../../img/head.jpg";
 import GenreList from "../Genre/genreList";
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
+import photoNotFound from '../../img/photo-not-found.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style/movie.scss';
 
@@ -33,7 +35,7 @@ const MovieDetail = () => {
                         {
                             movieDetail.poster_path?
                             <img src={`https://image.tmdb.org/t/p/w500/${movieDetail.poster_path}`} alt="post"></img>:
-                            <img src={'https://raw.githubusercontent.com/JulieCMY/mengyuc/master/photo-not-found.png'} alt='movie'></img> 
+                            <img src={photoNotFound} alt='movie'></img> 
                         }
                     </div>
                     <ul className="movie-detail-info">
@@ -61,6 +63,9 @@ const MovieDetail = () => {
                         </div>
                         <div className='rating-count'>{movieDetail.vote_count} votes</div>
                     </div>
+                </div>
+                <div className='user-comment'>
+                    <div className='user-icon'><img src={userIcon} alt='user-icon'></img></div>
                 </div>
             </div>
         </div>

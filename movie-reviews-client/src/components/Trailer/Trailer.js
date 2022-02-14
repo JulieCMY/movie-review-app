@@ -15,7 +15,6 @@ const Trailer = () => {
         const response = await fetch(url);
         const responsJson = await response.json();
         setTrailer(responsJson.results)
-        console.log(responsJson.results[0]);
     }
 
     useEffect(() => {
@@ -27,7 +26,7 @@ const Trailer = () => {
             <h3 className="detail-heading">Official Trailer · · · · · ·({trailers.length})</h3>
             <div className="trailer-list">
                 <YoutubeList trailers={trailers} />
-                {/* <CarouselYoutube /> */}
+                {/* <CarouselYoutube trailers={trailers} /> */}
             </div>
         </div>
     )

@@ -2,10 +2,10 @@ import React from "react";
 import YouTube from 'react-youtube';
 
 const opts = {
-    // height: '390',
-    // width: '640',
-    height: '260',
-    width: '427',
+    height: '390',
+    width: '640',
+    // height: '260',
+    // width: '427',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
