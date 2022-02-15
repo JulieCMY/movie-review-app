@@ -9,3 +9,25 @@
         margin-right: 10px;
     }
 }
+
+// Carousel Youtube Component
+.trailer-container {
+    display: flex;
+    .trailer-list{
+        margin-left: 10px;
+        padding: 20px;
+        background-color: rgb(159, 49, 49);
+        flex: 1;
+        height: 420px;
+        list-style: none;
+        .trailer-list-item {
+            height: 60px;
+            .trailer-list-title {
+                font-size: 24px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+}

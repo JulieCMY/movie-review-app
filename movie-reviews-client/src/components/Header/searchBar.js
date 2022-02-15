@@ -39,6 +39,7 @@ const SearchBar = () => {
         navigate(`/search?query=${searchValue}`);
         // empty the search bar 清空搜索输入框 🔍
         event.target.searchbar.value = '';
+        setSearchValue('');
         // blur event is called when search bar loses the focus 输入框失焦
         event.target.searchbar.blur();
         setMenuVisible(false);

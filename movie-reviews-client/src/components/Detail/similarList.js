@@ -3,37 +3,28 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import castNotFound from '../../img/cast-not-found.png';
+import photoNotFound from '../../img/photo-not-found.png';
 
-const CastList = (props) => {
+const SimilarList = (props) => {
     return (
         <Fragment>
-            {props.casts.map((cast, index) => (
+            {props.movies.map((movie, index) => (
                 <div className="cast-box" key={index}>
                     <Card sx={{ width: 160, backgroundColor: '#EFECDB' }}>
-                        {cast.profile_path ?
+                        {movie.poster_path ?
                             <CardMedia
                                 component="img"
                                 height="200"
-                                image={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}
+                                image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                 alt="cast"
                             /> :
                             <CardMedia
                                 component="img"
                                 height="200"
-                                image={castNotFound}
+                                image={photoNotFound}
                                 alt="cast"
                             />
                         }
-
-                        <CardContent>
-                            <Typography className="textOverflow" gutterBottom variant="subtitle2" component="div">
-                                {cast.name}
-                            </Typography>
-                            <Typography className="textOverflow" variant="body2" style={{ fontSize: '12px' }} color="text.secondary">
-                                {cast.character}
-                            </Typography>
-                        </CardContent>
                     </Card>
                 </div>
             ))}
@@ -41,4 +32,4 @@ const CastList = (props) => {
     );
 };
 
-export default CastList;
+export default SimilarList;

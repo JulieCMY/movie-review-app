@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API_KEY from "../Data/api";
-// import CarouselYoutube from "./CarouselYoutube";
 import YoutubeList from "./YoutubeList";
 import './trailer.scss';
 
@@ -26,7 +25,6 @@ const Trailer = () => {
             <h3 className="detail-heading">Official Trailer · · · · · ·({trailers.length})</h3>
             <div className="trailer-list">
                 <YoutubeList trailers={trailers} />
-                {/* <CarouselYoutube trailers={trailers} /> */}
             </div>
         </div>
     )

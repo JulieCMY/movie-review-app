@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API_KEY from "../Data/api";
-import userIcon from "../../img/head.jpg";
+import UserComment from "./UserComment";
 import GenreList from "../Genre/genreList";
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -64,9 +64,7 @@ const MovieDetail = () => {
                         <div className='rating-count'>{movieDetail.vote_count} votes</div>
                     </div>
                 </div>
-                <div className='user-comment'>
-                    <div className='user-icon'><img src={userIcon} alt='user-icon'></img></div>
-                </div>
+                <UserComment />
             </div>
         </div>
     );

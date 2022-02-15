@@ -213,6 +213,8 @@
     .rating-content{
         display: flex;
         .rating-num{
+            width: 75px;
+            text-align: center;
             color: $heading-fontColor;
             font-size: 48px;
             line-height: 54px;
@@ -228,18 +230,6 @@
             .rating-count {
                 font-size: 12px;
                 line-height: 12px;
-            }
-        }
-    }
-    .user-comment{
-        margin-top: 20px;
-        width: 320px;
-        background-color: #00010278;
-        .user-icon {
-            width: 80px;
-            img {
-                width: 100%;
-                border-radius: 50%;
             }
         }
     }
@@ -352,4 +342,10 @@
         background-color:#515248;
         color:$theme-fontColor;
     }
+}
+
+.textOverflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

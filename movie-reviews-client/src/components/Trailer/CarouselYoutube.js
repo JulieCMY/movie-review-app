@@ -1,9 +1,12 @@
 import React, { useEffect, useState, Fragment } from "react";
+import { useParams } from "react-router-dom";
+import API_KEY from "../Data/api";
 import YouTube from 'react-youtube';
+import './trailer.scss';
 
 const opts = {
-    height: '390',
-    width: '640',
+    height: '420',
+    width: '690',
     playerVars: {
         // https://developers.google.com/youtube/player_parameters
         autoplay: 0,
@@ -15,36 +18,37 @@ const onReady = (event) => {
     event.target.pauseVideo();
 }
 
-const AutoCarousel = (props) => {
-    const [playingUrl, setPlayingUrl] = useState('');
+const AutoCarousel = () => {
+    const [trailers, setTrailer] = useState([]);
+    const [playingUrl, setPlayingUrl] = useState(0);
+    let { id } = useParams();
 
-    function handleClick(trailer){
-        // console.log(trailer.key);
-        // console.log(playingUrl);
-        setPlayingUrl(trailer.key);
+    const getTrailerRequest = async () => {
+        const url = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
+        const response = await fetch(url);
+        const responsJson = await response.json();
+        setTrailer(responsJson.results);
+        setPlayingUrl(responsJson.results[0].key);
     }
-    
-    useEffect(()=> {
-        handleClick(playingUrl);
-    }, [playingUrl]); 
+
+    useEffect(() => {
+        getTrailerRequest();
+    }, [playingUrl]);
 
     return (
-        <Fragment>
-            <ul>
-                {props.trailers.map((trailer, index) => (
-                    <Fragment>
-                        {
-                            index===0 &&
-                            <YouTube videoId={trailer.key} containerClassName="video-container" className="iframe" opts={opts} onReady={onReady} />
-                        }
-                    <li onClick={() => handleClick(trailer)} key={index}>
-                        <p style={{color: 'white'}}>{trailer.name}</p>
-                        <p style={{color: 'white'}}>{trailer.published_at?.substring(0, 10)}</p>
-                    </li>
-                    </Fragment>
-                ))}
-            </ul>
-        </Fragment>
+        <div className="trailer movie-info-wrapper">
+            <h3 className="detail-heading">Official Trailer · · · · · ·({trailers.length})</h3>
+            <div className="trailer-container">
+                <YouTube videoId={playingUrl} containerClassName="video-container" className="iframe" opts={opts} onReady={onReady} />
+                <ul className="trailer-list">
+                    {trailers.map((trailer, index) => (
+                        <li className="trailer-list-item" onClick={() => console.log(trailer.key)} key={index}>
+                            <p className="trailer-list-title" style={{ color: 'white' }}>{index+1}. {trailer.name} </p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     );
 };
 

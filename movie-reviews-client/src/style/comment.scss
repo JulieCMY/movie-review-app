@@ -1,0 +1,39 @@
+.user-comment{
+    padding: 10px;
+    margin-top: 20px;
+    width: 320px;
+    background-color: #706F65;
+    border-radius: 30px;
+    .user-comment-top {
+        display: flex;
+        .user-icon {
+            width: 70px;
+            margin-right: 15px;
+            img {
+                width: 100%;
+                border-radius: 50%;
+            }
+        }
+        .user-rating{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .comment-textarea{
+        margin-top: 10px;
+        padding: 20px;
+        width: 100%;
+        min-height: 16rem;
+        background-color: #242423;
+        border-radius: 10px;
+        &:focus {
+            outline: none !important;
+            border-color:#b2ceea;
+            box-shadow: 0 0 10px #b2ceea;
+        }
+    }
+    button {
+        display: block;
+        margin: 2px auto;
+    }
+}
