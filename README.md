@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://git.fdmgroup.com/Mengyu.Chen/movie-reviews-app/raw/master/docs/movie-reviews-logo.jpg)
+![](https://raw.githubusercontent.com/JulieCMY/movie-review-app/master/docs/movie-reviews-logo.jpg?token=GHSAT0AAAAAABRUJUK53HVKD4TAC3ICKZ24YQMZ6TA)
 
 **A movie review website built by React.js and Spring Boot based on [front-end](https://github.com/InnoFang/jokul/tree/master/jokul-client) and [back-end](https://github.com/InnoFang/jokul/tree/master/jokul-server) separation.**
 
