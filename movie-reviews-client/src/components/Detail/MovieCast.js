@@ -18,7 +18,7 @@ const Cast = () => {
 
     useEffect(() => {
         getMovieCastRequest();
-    }, []);
+    }, [id]);
 
     return (
         <div className="cast movie-info-wrapper">

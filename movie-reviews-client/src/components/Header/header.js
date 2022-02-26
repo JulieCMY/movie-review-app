@@ -4,6 +4,7 @@ import logo from './movie-reviews-logo.jpg';
 import SearchBar from "./searchBar";
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+import icon from '../../img/movie-review-icon.png';
 import './header.scss';
 
 const ColorButton = styled(Button)({
@@ -50,10 +51,6 @@ class AppHeader extends Component {
             <Fragment>
                 <Link to="/" className="movie-reviews" style={{ textDecoration: 'none', display: 'flex' }}>
                     <img src={logo} alt="logo" className="movie-reviews-logo" />
-                    <div id="movie-review-container">
-                        <div className="movie-reviews-delimiter"></div>
-                        <div className="movie-reviews-text"><h1>MOVIE REVIEW</h1></div>
-                    </div>
                 </Link>
                     
                 <div className="movie-search">

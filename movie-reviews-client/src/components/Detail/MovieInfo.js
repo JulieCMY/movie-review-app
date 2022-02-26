@@ -23,7 +23,7 @@ const MovieDetail = () => {
 
     useEffect(() => {
         getMovieDetailRequest();
-    }, []);
+    }, [id]);
 
     return (
         <div className='movie-wrapper movie-detail-wrapper'>

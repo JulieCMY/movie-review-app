@@ -2,11 +2,11 @@
 
 ![](https://raw.githubusercontent.com/JulieCMY/movie-review-app/master/docs/movie-reviews-logo.jpg?token=GHSAT0AAAAAABRUJUK53HVKD4TAC3ICKZ24YQMZ6TA)
 
-**A movie review website built by React.js and Spring Boot based on [front-end](https://github.com/InnoFang/jokul/tree/master/jokul-client) and [back-end](https://github.com/InnoFang/jokul/tree/master/jokul-server) separation.**
+**A movie review website built by React.js**
 
 ![](https://img.shields.io/badge/react-17.0.2-blue?style=for-the-badge)
 
-![](https://img.shields.io/badge/antd-4.18.6-green?style=for-the-badge)![](https://img.shields.io/badge/mui-5.4.1-yellowgreen?style=for-the-badge)![](https://img.shields.io/badge/bootstrap-5.1.3-yellow?style=for-the-badge)
+![](https://img.shields.io/badge/antd-4.18.6-green?style=for-the-badge)![](https://img.shields.io/badge/mui-5.4.1-yellowgreen?style=for-the-badge)![](https://img.shields.io/badge/bootstrap-5.1.3-yellow?style=for-the-badge)![](https://img.shields.io/badge/datefns-2.28.0-blue?style=for-the-badge)
 
 ![](https://img.shields.io/badge/react--youtube-7.14.0-red?style=for-the-badge)
 
@@ -17,15 +17,8 @@
 **Clone this Project**
 
 ```
-> $ git clone https://git.fdmgroup.com/Mengyu.Chen/movie-reviews-app.git
+> $ git clone https://github.com/JulieCMY/movie-review-app.git
 > $ cd movie-reviews-app
-```
-
-**Deploy Server**
-Use maven
-
-```
-> $ mvn spring-boot:run
 ```
 
 **Run Client**
@@ -34,3 +27,5 @@ Use maven
 > $ npm start
 ```
 
+**Pre-requisite**
+This app uses free apid from [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction). Create a TMDB account and add `API_KEY` variable written in `api.js` file at the `Data` folder.

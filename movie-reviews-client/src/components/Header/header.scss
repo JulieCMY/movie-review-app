@@ -18,8 +18,7 @@
 }
 
 .movie-reviews-logo {
-    padding: 0.3125rem 0.625rem 0.3125rem 1rem;
-    display: block;
+    // padding: 0.3125rem 0.625rem 0.3125rem 1rem;
     height: 100%;
     background-color: $theme-bgColor;
     display: flex;
@@ -34,15 +33,22 @@
     margin-top: 0.625rem;
 }
 .movie-reviews-text{
-    width: 100%;
+    width: 20rem;
     background-color: $theme-bgColor;
-    padding-left: 0.9375rem;
+    padding-left: 0.5rem;
+    display: flex;
+    .icon {
+        margin-top: 0.55rem;
+        width: 2.8rem;
+        height: 2.8rem;
+    }
     h1 {
-        text-align: center;
         line-height: 3.9375rem;
         font-size: 2rem;
+        margin-left: 0.3rem;
         color: $theme-fontColor;
         font-family: 'Times New Roman', Times, serif;
+        font-weight: 500;
     }
 }
 

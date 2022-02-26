@@ -349,3 +349,38 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.review-list {
+    .review-item {
+        background-color: #efe8ce;
+        border-radius: 1.5rem;
+        margin-bottom: 3rem;
+        padding: 2.5rem 4rem;
+        .review-info {
+            color: #515248;
+            .review-user{
+                display: flex;
+                .avatar {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-right: 1rem;
+                    position: relative;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                        position: absolute;
+                        top: -0.7rem;
+                    }
+                }
+            }
+            display: flex;
+            justify-content: space-between;
+        }
+        .review-content::first-letter {
+            font-size: x-large;
+            color: #4d4121;
+            margin-right: 0.05rem;
+        }
+    }
+}

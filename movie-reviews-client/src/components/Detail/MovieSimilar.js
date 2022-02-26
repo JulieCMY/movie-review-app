@@ -18,7 +18,7 @@ const Similar = () => {
 
     useEffect(() => {
         getMovieRequest();
-    }, []);
+    }, [id]);
 
     return (
         <div className="cast movie-info-wrapper">
