@@ -1,6 +1,6 @@
 <div align="center">
 
-![](https://raw.githubusercontent.com/JulieCMY/movie-review-app/master/docs/movie-reviews-logo.jpg?token=GHSAT0AAAAAABRUJUK53HVKD4TAC3ICKZ24YQMZ6TA)
+![](https://github.com/JulieCMY/movie-review-app/blob/master/docs/movie-reviews-logo.jpg?raw=true)
 
 **A movie review website built by React.js**
 
