@@ -5,7 +5,7 @@ const MovieList = (props) => {
     return (
         <Fragment>
             {props.movies.map((movie, index) => (
-                <Link to={`/detail/${movie.id}`} key={movie.id}>
+                <Link to={`/movie/${movie.id}`} key={movie.id}>
                     <div className="movie-poster-box">
                         <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='movie'></img>
                         <div className="movie-poster-detail">

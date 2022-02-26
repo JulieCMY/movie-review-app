@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
@@ -11,12 +11,13 @@ const refreshComponent = () => {
 }
 
 const SimilarList = (props) => {
+
     return (
         <Fragment>
             {props.movies.map((movie, index) => (
-                <div className="cast-box" key={index}>
-                    <Link to={`/detail/${movie.id}`} onClick={refreshComponent}>
-                        <Card sx={{ width: 160, backgroundColor: '#EFECDB' }}>
+                <div key={index}>
+                    <Link className="similar-box" to={`/movie/${movie.id}`} onClick={refreshComponent}>
+                        <Card className="poster" sx={{ width: 160, backgroundColor: '#EFECDB' }}>
                             {movie.poster_path ?
                                 <CardMedia
                                     component="img"
@@ -32,7 +33,24 @@ const SimilarList = (props) => {
                                 />
                             }
                         </Card>
-                    </Link>                   
+                        <Card className="backdrop" sx={{ height: 200, width: 300, backgroundColor: '#EFECDB' }}>
+                            {movie.backdrop_path ?
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+                                    alt="cast"
+                                /> :
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={photoNotFound}
+                                    alt="cast"
+                                />
+                            }
+                            <div className="overview"><p>{movie.overview}</p></div>
+                        </Card>
+                    </Link>
                 </div>
             ))}
         </Fragment>

@@ -7,7 +7,7 @@ import Trailer from "../Trailer/Trailer";
 import Review from "./Review";
 import '../../style/movie.scss';
 
-const Detail = () => {
+const Movie = () => {
     return (
         <Fragment>
             <MovieDetail />
@@ -20,4 +20,4 @@ const Detail = () => {
     );
 };
 
-export default Detail;
+export default Movie;

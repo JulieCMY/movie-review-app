@@ -1,18 +1,20 @@
 import React, { Fragment } from "react";
-import NowPlayingMovie from "../Movie/NowPlayingMovie";
-import PopularMovie from "../Movie/PopularMovie";
-import TopRatedMovie from "../Movie/TopRatedMovie";
-import UpcomingMovie from "../Movie/UpcomingMovie";
-import TV from "../TV/tv";
+import NowPlayingMovie from "./NowPlayingMovie";
+import Genre from "./Genre";
+import PopularMovie from "./PopularMovie";
+import TopRatedMovie from "./TopRatedMovie";
+import UpcomingMovie from "./UpcomingMovie";
 
 const home = () => {
     return (
     <Fragment>
-        <PopularMovie />
+        <div className="home-top-wrapper">
+            <PopularMovie />
+            <Genre />
+        </div>
         <NowPlayingMovie />
         <UpcomingMovie />
         <TopRatedMovie />
-        <TV />
     </Fragment>
     );
 }

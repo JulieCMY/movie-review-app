@@ -11,10 +11,10 @@ import '../../style/movie.scss';
 
 const MovieDetail = () => {
     const [movieDetail, setMovieDetail] = useState([]);
-    let { id } = useParams();
+    let { movieId } = useParams();
 
     const getMovieDetailRequest = async () => {
-        const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`;
+        const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         console.log(responsJson);
@@ -23,7 +23,7 @@ const MovieDetail = () => {
 
     useEffect(() => {
         getMovieDetailRequest();
-    }, [id]);
+    }, [movieId]);
 
     return (
         <div className='movie-wrapper movie-detail-wrapper'>

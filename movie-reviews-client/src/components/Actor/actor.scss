@@ -1,0 +1,19 @@
+@import '../../style/variables.scss';
+
+.actor-wrapper {
+    display: flex;
+    color: $theme-fontColor;
+    .actor-profile {
+        width: 300px;
+        margin-right: 80px;
+        img {
+            width: 100%;
+        }
+    }
+    .actor-info {
+        width: 800px;
+        .bio::first-letter {
+            font-size: x-large;
+        }
+    }
+}

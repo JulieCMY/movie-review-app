@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import photoNotFound from '../../img/photo-not-found.png';
 // import Rating from '@mui/material/Rating';
@@ -14,7 +14,7 @@ const SearchMenuList = (props) => {
         <ul className="search-lister">
             {props.movies.map((movie, index) => (
                 <div className="search-lister-item" key={index}>
-                    <Link to={`/detail/${movie.id}`} onClick={enterPageEvent}>
+                    <Link to={`/movie/${movie.id}`} onClick={enterPageEvent}>
                         <div className="search-lister-item-img">
                             {movie.poster_path ?
                                 <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='movie'></img> :

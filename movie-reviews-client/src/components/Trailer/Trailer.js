@@ -7,10 +7,10 @@ import './trailer.scss';
 
 const Trailer = () => {
     const [trailers, setTrailer] = useState([]);
-    let { id } = useParams();
+    let { movieId } = useParams();
 
     const getTrailerRequest = async () => {
-        const url = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
+        const url = `http://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         setTrailer(responsJson.results)

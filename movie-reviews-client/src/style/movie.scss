@@ -264,6 +264,9 @@
         }
         .cast-box{
             margin-right: 15px;
+            a {
+                text-decoration: none;
+            }
         }
     }
 }
@@ -381,6 +384,87 @@
             font-size: x-large;
             color: #4d4121;
             margin-right: 0.05rem;
+        }
+    }
+}
+
+.similar-list{
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    &::-webkit-scrollbar {
+        visibility: hidden;
+    }
+    .similar-box {
+        display: flex;
+        justify-content: start;
+        margin-right: 15px;
+        .poster {
+            display: block;
+            opacity: 1;
+            transition: all 0.4s;
+        }
+        .backdrop {
+            position: relative;
+            display: none;
+            opacity: 0;
+            transition: all 0.4s;
+            .overview{
+                width: 300px;
+                height: 200px;
+                position: absolute;
+                top: 0;
+                color:rgb(247, 238, 226);
+                padding: 100px 30px 0;
+                background-color: #67675a95;
+                p {
+                    overflow:hidden;
+                    text-overflow:ellipsis;
+                    display:-webkit-box;
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:3;
+                }
+            }
+        }
+    }
+    .similar-box:hover{
+        .poster {
+            display: none;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+        .backdrop {
+            display: block;
+            opacity: 1;
+            transition: all 0.4s;
+        }
+    }
+}
+
+.home-top-wrapper {
+    display: flex;
+    .movie-genres-icon {
+        width: 340px;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+        img {
+            width: 75%;
+        }
+    }
+    .movie-genres {
+        margin-left: 30px;
+        width: 340px;
+        height: 380px;
+        flex-wrap: wrap;
+        display: flex;
+        align-items: center;
+        a {
+            text-decoration: none;
+            height: 50px;
+        }
+        .movie-genre-box button {
+            margin: 5px;
         }
     }
 }

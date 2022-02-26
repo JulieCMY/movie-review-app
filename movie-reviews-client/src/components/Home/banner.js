@@ -7,7 +7,7 @@ const Banner = (props) => {
     return (
         <Carousel autoPlay={true} showArrows={false} infiniteLoop={true} showStatus={false}>
             {props.movies.map((movie, index) => (
-                <Link to={`/detail/${movie.id}`} key={movie.id}>
+                <Link to={`/movie/${movie.id}`} key={movie.id}>
                     <div className="movie-banner-box">
                         <img className="movie-banner" src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} alt='movie'></img>
                         <div className="movie-banner-content">

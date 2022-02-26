@@ -8,7 +8,7 @@ const MovieSearchList = (props) => {
         <Fragment>
             {props.movies.map((movie, index) => (
                 <div className="lister-item" key={index}>
-                    <Link to={`/detail/${movie.id}`}>
+                    <Link to={`/movie/${movie.id}`}>
                         <div className="lister-item-img">
                             {movie.poster_path ?
                                 <img className="movie-poster" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt='movie'></img> :
@@ -18,7 +18,11 @@ const MovieSearchList = (props) => {
                     </Link>
                     <div className="lister-item-content">
                         <div className="lister-item-top">
-                        <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0, 4)})</h3>   
+                        {
+                            movie.media_type == "movie"||movie.media_type == null ?
+                            <h3 className="lister-item-header">{movie.title} ({movie.release_date?.substring(0, 4)})</h3> :
+                            <h3 className="lister-item-header">{movie.name} ({movie.first_air_date?.substring(0, 4)})</h3> 
+                        }  
                             <div className="lister-item-rating">
                                 <div className="ratings-bar">
                                     <Rating name="half-rating-read" value={parseFloat(movie.vote_average) / 2} precision={0.1} readOnly /> 

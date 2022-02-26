@@ -6,10 +6,10 @@ import '../../style/movie.scss';
 
 const Review = () => {
     const [reviews, setReviews] = useState([]);
-    let { id } = useParams();
+    let { movieId } = useParams();
 
     const getReviewRequest = async () => {
-        const url = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}`;
+        const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         console.log(responsJson);
@@ -18,7 +18,7 @@ const Review = () => {
 
     useEffect(() => {
         getReviewRequest();
-    }, [id]);
+    }, [movieId]);
 
     return (
         <div className="cast movie-info-wrapper">

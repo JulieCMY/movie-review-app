@@ -6,10 +6,10 @@ import '../../style/movie.scss';
 
 const Cast = () => {
     const [casts, setCast] = useState([]);
-    let { id } = useParams();
+    let { movieId } = useParams();
 
     const getMovieCastRequest = async () => {
-        const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}`;
+        const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         console.log(responsJson);
@@ -18,7 +18,7 @@ const Cast = () => {
 
     useEffect(() => {
         getMovieCastRequest();
-    }, [id]);
+    }, [movieId]);
 
     return (
         <div className="cast movie-info-wrapper">

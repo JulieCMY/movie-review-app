@@ -4,7 +4,6 @@ import logo from './movie-reviews-logo.jpg';
 import SearchBar from "./searchBar";
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
-import icon from '../../img/movie-review-icon.png';
 import './header.scss';
 
 const ColorButton = styled(Button)({
