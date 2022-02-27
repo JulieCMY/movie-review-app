@@ -47,7 +47,7 @@ const SearchBar = () => {
 
     const getMovieRequest = async () => {
         if (searchValue.length!==0){
-            const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchValue}&page=1`;
+            const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchValue}&page=1`;
             const response = await fetch(url);
             const responsJson = await response.json();
             // console.log(responsJson.results);

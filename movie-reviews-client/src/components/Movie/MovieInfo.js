@@ -42,7 +42,10 @@ const MovieDetail = () => {
                         <li className="movie-metadata-genre"><GenreList genres={movieDetail.genres} /></li>
                         <li className="movie-metadata-divider"><span>Release Date: </span> {movieDetail.release_date}</li>
                         <li className="movie-metadata-divider"><span>Runtime: </span> {movieDetail.runtime} min</li>
-                        <li className="movie-metadata-divider"><span>Homepage: </span><a href={`${movieDetail.homepage}`} className="movie-homepage">{movieDetail.homepage}</a></li>
+                        {
+                            movieDetail.homepage !== "" &&
+                            <li className="movie-metadata-divider"><span>Homepage: </span><a href={`${movieDetail.homepage}`} className="movie-homepage">{movieDetail.homepage}</a></li>
+                        }
                         <li className="movie-metadata-divider"><span>Overview: </span> <p className="movie-overview"> {movieDetail.overview}</p></li>
                     </ul>
                 </div>
@@ -50,7 +53,7 @@ const MovieDetail = () => {
             <div className='movie-right-container'>
                 <div className='rating-title'>IMDb</div>
                 <div className='rating-content'>
-                    <strong className='rating-num'>{movieDetail.vote_average}</strong>
+                    <strong className='rating-num'>{parseFloat(movieDetail.vote_average).toFixed(1)}</strong>
                     <div className='rating-right'>
                         <div className='bigstar'>
                             <Rating 

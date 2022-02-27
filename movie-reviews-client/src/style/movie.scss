@@ -468,3 +468,17 @@
         }
     }
 }
+.seasons-list{
+    a {
+        text-decoration: none;
+    }
+    .cast-box {
+        margin-right: 15px;
+    }
+    display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        &::-webkit-scrollbar {
+            visibility: hidden;
+        }
+}
