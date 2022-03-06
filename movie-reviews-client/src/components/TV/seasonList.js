@@ -51,7 +51,7 @@ const SeasonList = (props) => {
                                     /> :
                                     <CardMedia
                                         component="img"
-                                        height="400"
+                                        height="350"
                                         image={castNotFound}
                                         alt="cast"
                                     />

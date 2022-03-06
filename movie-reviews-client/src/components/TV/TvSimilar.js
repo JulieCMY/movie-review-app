@@ -6,10 +6,14 @@ import '../../style/movie.scss';
 
 const Similar = () => {
     const [movies, setMovies] = useState([]);
+    const [language, setLanguage] = useState(() => {
+        const initialValue = localStorage.getItem("language");
+        return initialValue || "";
+    });
     let { tvId } = useParams();
 
     const getMovieRequest = async () => {
-        const url = `https://api.themoviedb.org/3/tv/${tvId}/similar?api_key=${API_KEY}`;
+        const url = `https://api.themoviedb.org/3/tv/${tvId}/similar?api_key=${API_KEY}&language=${language}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         // console.log(responsJson);
@@ -18,7 +22,7 @@ const Similar = () => {
 
     useEffect(() => {
         getMovieRequest();
-    }, [tvId]);
+    }, [tvId, language]);
 
     return (
         <div className="cast movie-info-wrapper">

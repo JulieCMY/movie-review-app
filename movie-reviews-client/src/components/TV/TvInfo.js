@@ -13,12 +13,11 @@ import '../../style/movie.scss';
 const TvDetail = () => {
     const [movieDetail, setMovieDetail] = useState([]);
     const [seasonDetail, setSeasonDetail] = useState([]);
-    const [language, setLanguage] = useState('');
+    const [language, setLanguage] = useState(() => {
+        const initialValue = localStorage.getItem("language");
+        return initialValue || "";
+    });
     let { tvId } = useParams();
-
-    const getUserLanguage = () => {
-        setLanguage(localStorage.getItem("language"));
-    }
 
     const getTvDetailRequest = async () => {
         const url = `https://api.themoviedb.org/3/tv/${tvId}?api_key=${API_KEY}&language=${language}`;
@@ -30,7 +29,6 @@ const TvDetail = () => {
     }
 
     useEffect(() => {
-        getUserLanguage();
         getTvDetailRequest();
     }, [tvId, language]);
 

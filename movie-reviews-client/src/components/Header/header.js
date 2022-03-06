@@ -11,11 +11,16 @@ import Select from '@mui/material/Select';
 import './header.scss';
 
 const AppHeader = () => {
-    const [language, setLanguage] = useState('');
+    const [language, setLanguage] = useState(() => {
+        const initialValue = localStorage.getItem("language");
+        return initialValue || "";
+    });
     const [languages, setLanguages] = useState([]);
 
     const handleChange = (event) => {
         setLanguage(event.target.value);
+        // 页面刷新
+        window.location.reload();   
     };
 
     const getLanguageRequest = async () => {

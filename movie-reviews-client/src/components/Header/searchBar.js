@@ -30,7 +30,7 @@ const SearchBar = () => {
             // console.log(event.target.value);
             setSearchValue(event.target.value);
             timer = null;
-        }, 200);
+        }, 100);
     }
 
     const formSubmit = (event) => {

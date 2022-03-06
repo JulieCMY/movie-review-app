@@ -12,12 +12,11 @@ import '../../style/movie.scss';
 
 const MovieDetail = () => {
     const [movieDetail, setMovieDetail] = useState([]);
-    const [language, setLanguage] = useState('');
+    const [language, setLanguage] = useState(() => {
+        const initialValue = localStorage.getItem("language");
+        return initialValue || "";
+    });
     let { movieId } = useParams();
-
-    const getUserLanguage = () => {
-        setLanguage(localStorage.getItem("language"));
-    }
     
     const getMovieDetailRequest = async () => {
         // console.log(localStorage.getItem("language"));
@@ -29,7 +28,6 @@ const MovieDetail = () => {
     }
 
     useEffect(() => {
-        getUserLanguage();
         getMovieDetailRequest();
     }, [movieId, language]);
 
