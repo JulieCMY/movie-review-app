@@ -1,66 +1,69 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import localStorage from "localStorage";
 import logo from './movie-reviews-logo.jpg';
+import API_KEY from "../Data/api";
 import SearchBar from "./searchBar";
-import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import './header.scss';
 
-const ColorButton = styled(Button)({
-    boxShadow: 'none',
-    textTransform: 'none',
-    fontSize: 16,
-    marginTop: '10px',
-    marginBottom: '10px',
-    padding: '6px 12px',
-    border: '1px solid',
-    lineHeight: 1.5,
-    backgroundColor: '#383834',
-    borderColor: '#383834',
-    fontFamily: [
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-        backgroundColor: '#696761',
-        borderColor: '#696761',
-        boxShadow: 'none',
-    },
-    '&:active': {
-        boxShadow: 'none',
-        backgroundColor: '#968f72',
-        borderColor: '#757161',
-    },
-    '&:focus': {
-        boxShadow: '0 0 0 0.2rem rgba(125,120,102,.5)',
-    },
-});
+const AppHeader = () => {
+    const [language, setLanguage] = useState('');
+    const [languages, setLanguages] = useState([]);
 
-class AppHeader extends Component {
-    render() {
-        return (
-            <Fragment>
-                <Link to="/" className="movie-reviews" style={{ textDecoration: 'none', display: 'flex' }}>
-                    <img src={logo} alt="logo" className="movie-reviews-logo" />
-                </Link>
-                    
-                <div className="movie-search">
-                    <SearchBar />
-                </div>
-                <div className="user-login">
-                    <ColorButton variant="contained">SIGN IN</ColorButton>
-                </div>
-            </Fragment>
-        );
+    const handleChange = (event) => {
+        setLanguage(event.target.value);
+    };
+
+    const getLanguageRequest = async () => {
+        const url = `https://api.themoviedb.org/3/configuration/languages?api_key=${API_KEY}`;
+        const response = await fetch(url);
+        const responsJson = await response.json();
+        setLanguages(responsJson);
     }
+
+    useEffect(() => {
+        getLanguageRequest();
+        console.log(language);
+        localStorage.setItem("language", language);
+    }, [language]);
+
+
+    return (
+        <Fragment>
+            <Link to="/" className="movie-reviews" style={{ textDecoration: 'none', display: 'flex' }}>
+                <img src={logo} alt="logo" className="movie-reviews-logo" />
+            </Link>
+
+            <div className="movie-search">
+                <SearchBar />
+            </div>
+            <div className="user-login">
+                <FormControl sx={{ width: 150 }}>
+                    <InputLabel>Language</InputLabel>
+                    <Select
+                        className="language-select"
+                        value={language}
+                        label="Language"
+                        onChange={handleChange}
+                    >
+                        {languages.map((configLang, index) => (
+                            <MenuItem value={configLang.iso_639_1} key={index}>
+                                {
+                                    configLang.name&&configLang.name.substr(0,1)!==('?')?
+                                    configLang.name:
+                                    configLang.english_name
+                                }
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
+        </Fragment>
+    );
 }
 
 export default AppHeader;

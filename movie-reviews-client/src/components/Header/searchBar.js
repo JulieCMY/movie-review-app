@@ -1,5 +1,4 @@
-// import React, { useState } from "react";
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API_KEY from "../Data/api";
 import SearchMenuList from "./SearchMenuList";
@@ -14,6 +13,7 @@ const SearchBar = () => {
     const [searchValue, setSearchValue] = useState('');
     const [movies, setMovies] = useState([]);
     const [searchMenuVisible, setMenuVisible] = useState(false);
+    const [language, setLanguage] = useState('');
 
     // const searchMovieKeyword = (event) => {
     //     console.log(event.target.value);
@@ -45,9 +45,13 @@ const SearchBar = () => {
         setMenuVisible(false);
     }
 
+    const getUserLanguage = () => {
+        setLanguage(localStorage.getItem("language"));
+    }
+
     const getMovieRequest = async () => {
         if (searchValue.length!==0){
-            const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchValue}&page=1`;
+            const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchValue}&language=${language}&page=1`;
             const response = await fetch(url);
             const responsJson = await response.json();
             // console.log(responsJson.results);
@@ -58,8 +62,9 @@ const SearchBar = () => {
 
     // Once queryKeyword has changed, reset the movie request
     useEffect(()=> {
+        getUserLanguage();
         getMovieRequest();
-    }, [searchValue, searchMenuVisible]); 
+    }, [searchValue, searchMenuVisible, language]); 
 
     return (
         <div className="movie-search-wrapper">

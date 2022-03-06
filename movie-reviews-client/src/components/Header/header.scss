@@ -113,12 +113,11 @@
 }
 
 .user-login {
-    // width: 100%;
-    padding-right: 0.625rem;
-}
-
-.sign-in-button {
-    // width: 100%;
-    background-color: #fff;
-    padding-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+    background-color: transparent;
+    .language-select {
+        background-color: $theme-fontColor;
+    }
 }

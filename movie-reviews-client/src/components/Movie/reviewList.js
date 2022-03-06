@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import Rating from '@mui/material/Rating';
 import avatarNotFound from '../../img/avatar-not-found.png';
-import { formatRelative, subDays } from 'date-fns';
 
 const ReviewList = (props) => {
     return (
@@ -13,7 +12,7 @@ const ReviewList = (props) => {
                             <div className="avatar">
                                 {
                                     review.author_details.avatar_path ?
-                                        review.author_details.avatar_path.includes('/https://secure.gravatar.com/avatar/') ?
+                                        review.author_details.avatar_path.includes('/https:') ?
                                         <img src={`${review.author_details.avatar_path.substring(1,)}`} alt="avatar"></img> :
                                         <img src={`https://image.tmdb.org/t/p/w500/${review.author_details.avatar_path}`} alt="avatar"></img>
                                     :

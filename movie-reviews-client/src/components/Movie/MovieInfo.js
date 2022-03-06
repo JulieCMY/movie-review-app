@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import localStorage from "localStorage";
 import API_KEY from "../Data/api";
 import UserComment from "./UserComment";
 import GenreList from "../Genre/genreList";
@@ -11,10 +12,16 @@ import '../../style/movie.scss';
 
 const MovieDetail = () => {
     const [movieDetail, setMovieDetail] = useState([]);
+    const [language, setLanguage] = useState('');
     let { movieId } = useParams();
 
+    const getUserLanguage = () => {
+        setLanguage(localStorage.getItem("language"));
+    }
+    
     const getMovieDetailRequest = async () => {
-        const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}`;
+        // console.log(localStorage.getItem("language"));
+        const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=${language}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         console.log(responsJson);
@@ -22,8 +29,9 @@ const MovieDetail = () => {
     }
 
     useEffect(() => {
+        getUserLanguage();
         getMovieDetailRequest();
-    }, [movieId]);
+    }, [movieId, language]);
 
     return (
         <div className='movie-wrapper movie-detail-wrapper'>

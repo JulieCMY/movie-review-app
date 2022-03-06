@@ -14,13 +14,18 @@ const SearchMovieByKeyword = () => {
     const [movies, setMovies] = useState([]);
     const [maxPages, setMaxPages] = useState([]);
     const [page, setPage] = useState(1);
+    const [language, setLanguage] = useState('');
     const handleChange = (event, value) => {
         setPage(value);
         document.documentElement.scrollTop = 0;
     };
     
+    const getUserLanguage = () => {
+        setLanguage(localStorage.getItem("language"));
+    }
+
     const getMovieRequest = async () => {
-        const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${queryKeyword}&page=${page}`;
+        const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${queryKeyword}&language=${language}&page=${page}`;
         const response = await fetch(url);
         const responsJson = await response.json();
         console.log(responsJson);
@@ -30,8 +35,9 @@ const SearchMovieByKeyword = () => {
 
     // Once queryKeyword has changed, reset the movie request
     useEffect(()=> {
+        getUserLanguage();
         getMovieRequest();
-    }, [queryKeyword, page]); 
+    }, [queryKeyword, page, language]); 
 
     return (
     <div className='movie-wrapper container-fluid'>

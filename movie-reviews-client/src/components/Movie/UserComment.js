@@ -57,6 +57,11 @@ const UserComment = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        const data = {
+            rating,
+            comment
+        }
+        console.log(data);
     }
 
     return (
