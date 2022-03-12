@@ -11,9 +11,9 @@ const Review = () => {
     const getReviewRequest = async () => {
         const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        console.log(responsJson);
-        setReviews(responsJson.results);
+        const responseJson = await response.json();
+        console.log(responseJson);
+        setReviews(responseJson.results);
     }
 
     useEffect(() => {

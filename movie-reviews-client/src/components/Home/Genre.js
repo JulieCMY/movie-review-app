@@ -9,8 +9,8 @@ const Genre = () => {
     const getMovieGenresRequest = async () => {
         const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        setMovieGenres(responsJson)
+        const responseJson = await response.json();
+        setMovieGenres(responseJson)
     }
 
     useEffect(() => {

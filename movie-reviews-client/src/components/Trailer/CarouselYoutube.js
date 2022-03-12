@@ -26,9 +26,9 @@ const AutoCarousel = () => {
     const getTrailerRequest = async () => {
         const url = `http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        setTrailer(responsJson.results);
-        setPlayingUrl(responsJson.results[0].key);
+        const responseJson = await response.json();
+        setTrailer(responseJson.results);
+        setPlayingUrl(responseJson.results[0].key);
     }
 
     useEffect(() => {

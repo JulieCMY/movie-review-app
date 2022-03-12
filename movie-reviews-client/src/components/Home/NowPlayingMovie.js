@@ -11,9 +11,9 @@ const NowPlayingMovie = () => {
     const getMovieRequest = async () => {
         const url =`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&page=1`
         const response = await fetch(url);
-        const responsJson = await response.json();
-        // console.log(responsJson);
-        setMovies(responsJson.results)
+        const responseJson = await response.json();
+        // console.log(responseJson);
+        setMovies(responseJson.results)
     }
 
     useEffect(()=> {

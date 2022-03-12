@@ -482,3 +482,22 @@
             visibility: hidden;
         }
 }
+
+.season-info {
+    margin-top: 40px;
+    .season-overview {
+        margin-left: 40px;
+        &-detail {
+            font-size: 18px;
+            color: $theme-fontColor;
+        }
+        &-detail::first-letter {
+            font-size: 32px;
+        }
+    }
+}
+
+.episodes-list h3 {
+    font-size: 16px;
+    color: $theme-fontColor;
+}

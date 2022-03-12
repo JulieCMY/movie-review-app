@@ -12,8 +12,8 @@ const Trailer = () => {
     const getTrailerRequest = async () => {
         const url = `http://api.themoviedb.org/3/tv/${tvId}/videos?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        setTrailer(responsJson.results)
+        const responseJson = await response.json();
+        setTrailer(responseJson.results)
     }
 
     useEffect(() => {

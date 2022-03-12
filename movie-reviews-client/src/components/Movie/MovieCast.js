@@ -15,9 +15,9 @@ const Cast = () => {
     const getMovieCastRequest = async () => {
         const url = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=${language}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        console.log(responsJson);
-        setCast(responsJson.cast);
+        const responseJson = await response.json();
+        console.log(responseJson);
+        setCast(responseJson.cast);
     }
 
     useEffect(() => {

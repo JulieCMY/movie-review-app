@@ -11,9 +11,9 @@ const TopRatedMovie = () => {
     const getMovieRequest = async () => {
         const url =`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
         const response = await fetch(url);
-        const responsJson = await response.json();
-        // console.log(responsJson);
-        setMovies(responsJson.results)
+        const responseJson = await response.json();
+        // console.log(responseJson);
+        setMovies(responseJson.results)
     }
 
     useEffect(()=> {

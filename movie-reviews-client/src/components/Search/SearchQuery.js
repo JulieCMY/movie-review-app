@@ -30,10 +30,10 @@ const SearchMovieByKeyword = () => {
     const getMovieRequest = async () => {
         const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${queryKeyword}&language=${language}&page=${page}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        console.log(responsJson);
-        setMovies(responsJson.results);
-        setMaxPages(responsJson.total_pages);
+        const responseJson = await response.json();
+        console.log(responseJson);
+        setMovies(responseJson.results);
+        setMaxPages(responseJson.total_pages);
     }
 
     // Once queryKeyword has changed, reset the movie request

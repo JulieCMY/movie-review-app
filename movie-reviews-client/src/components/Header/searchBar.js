@@ -53,9 +53,9 @@ const SearchBar = () => {
         if (searchValue.length!==0){
             const url = `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${searchValue}&language=${language}&page=1`;
             const response = await fetch(url);
-            const responsJson = await response.json();
-            // console.log(responsJson.results);
-            setMovies(responsJson.results);
+            const responseJson = await response.json();
+            // console.log(responseJson.results);
+            setMovies(responseJson.results);
             setMenuVisible(true);
         }
     }

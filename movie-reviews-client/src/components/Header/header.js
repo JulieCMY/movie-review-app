@@ -26,8 +26,8 @@ const AppHeader = () => {
     const getLanguageRequest = async () => {
         const url = `https://api.themoviedb.org/3/configuration/languages?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        setLanguages(responsJson);
+        const responseJson = await response.json();
+        setLanguages(responseJson);
     }
 
     useEffect(() => {

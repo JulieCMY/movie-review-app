@@ -8,6 +8,7 @@ import TopRated from './components/Home/TopRated';
 import Upcoming from './components/Home/Upcoming';
 import Movie from './components/Movie/Movie';
 import TV from './components/TV/TV';
+import Season from './components/Season/Season';
 import Actor from './components/Actor/Actor';
 import SearchMovieByGenre from './components/Search/SearchGenre';
 import SearchMovieByKeyword from './components/Search/SearchQuery';
@@ -28,6 +29,7 @@ function App() {
 						<Route path='/movie/upcoming' element={<Upcoming />} />
 						<Route path='/movie/:movieId' element={<Movie />} />
 						<Route path='/tv/:tvId' element={<TV />} />
+						<Route path='/tv/:tvId/season/:seasonNumber' element={<Season />} />
 						<Route path='/actor/:actorId' element={<Actor />} />
 						<Route path='/genre/:genreId' element={<SearchMovieByGenre />} />
 						<Route path='/search' element={<SearchMovieByKeyword />}/>

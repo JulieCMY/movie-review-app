@@ -20,11 +20,11 @@ const SearchMovieByGenre = () => {
     const getGenreRequest = async () => {
         const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
         const response = await fetch(url);
-        const responsJson = await response.json();
-        for(let i in responsJson.genres){
-            if (responsJson.genres[i].id == genreId){
-                // console.log(responsJson.genres[i].name);
-                setGenre(responsJson.genres[i].name);
+        const responseJson = await response.json();
+        for(let i in responseJson.genres){
+            if (responseJson.genres[i].id == genreId){
+                // console.log(responseJson.genres[i].name);
+                setGenre(responseJson.genres[i].name);
                 break;
             }
         }    
@@ -33,10 +33,10 @@ const SearchMovieByGenre = () => {
     const getMovieRequest = async () => {
         const url = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${page}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        // console.log(responsJson);
-        setMovies(responsJson.results)
-        setMaxPages(responsJson.total_pages);
+        const responseJson = await response.json();
+        // console.log(responseJson);
+        setMovies(responseJson.results)
+        setMaxPages(responseJson.total_pages);
     }
 
     useEffect(()=> {

@@ -15,9 +15,9 @@ const Similar = () => {
     const getMovieRequest = async () => {
         const url = `https://api.themoviedb.org/3/tv/${tvId}/similar?api_key=${API_KEY}&language=${language}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        // console.log(responsJson);
-        setMovies(responsJson.results);
+        const responseJson = await response.json();
+        // console.log(responseJson);
+        setMovies(responseJson.results);
     }
 
     useEffect(() => {

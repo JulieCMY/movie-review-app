@@ -22,9 +22,9 @@ const MovieDetail = () => {
         // console.log(localStorage.getItem("language"));
         const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=${language}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        console.log(responsJson);
-        setMovieDetail(responsJson)
+        const responseJson = await response.json();
+        console.log(responseJson);
+        setMovieDetail(responseJson)
     }
 
     useEffect(() => {

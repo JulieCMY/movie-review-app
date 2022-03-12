@@ -10,8 +10,8 @@ const Genre = () => {
     const getActorRequest = async () => {
         const url = `https://api.themoviedb.org/3/person/${actorId}?api_key=${API_KEY}`;
         const response = await fetch(url);
-        const responsJson = await response.json();
-        setActor(responsJson);
+        const responseJson = await response.json();
+        setActor(responseJson);
     }
 
     useEffect(() => {
