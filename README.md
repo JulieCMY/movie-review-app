@@ -30,3 +30,7 @@
 **Pre-requisite**
 
 This app uses free apid from [TMDB API](https://developers.themoviedb.org/3/getting-started/introduction). Create a TMDB account and add `API_KEY` variable written in `api.js` file at the `Data` folder.
+
+**Demo**
+
+![movie-app-demo](https://github.com/JulieCMY/movie-review-app/blob/master/docs/movie-reivew-app-demo.gif?raw=true)
